@@ -13,6 +13,7 @@ ts = time.gmtime()
 
 @client.event
 async def on_message(message):
+    #msg_history = await channel.history(limit=100).flatten()
     # We don't want the bot to reply to itself
     if message.author == client.user:
         return
@@ -33,7 +34,7 @@ async def on_message(message):
     if message.content.startswith('!mock-help'):
             embed = discord.Embed(title="**List of commands**", description="List of commands to use.", colour=discord.Colour(0x7a19fd))
             embed.set_author(name="mock-bot")
-            embed.set_footer(text=f"{}".format(version))
+            embed.set_footer(text=(version))
             embed.add_field(name="!mock", value="Mock the message above yours.", inline=False)
             embed.add_field(name="!mock-help", value="Show this embed.", inline=False)
             embed.add_field(name="!mock-invite", value="Get invite to the bot", inline=False)
