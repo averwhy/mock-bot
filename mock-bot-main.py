@@ -6,7 +6,7 @@ from discord.ext import commands
 
 TOKEN = ''
 userid = '670079293673570323'
-version = 'v0.6'
+version = 'v0.7'
 invite = "https://discordapp.com/api/oauth2/authorize?client_id=670079293673570323&permissions=8&scope=bot"
 client = discord.Client()
 ts = time.gmtime()
@@ -23,9 +23,8 @@ async def on_message(message):
         return
 
     if message.content.startswith('!mock') or message.content.startswith(')'):
-        if message.author.id == (670079293673570323):
+        if message[1].author.id == (670079293673570323):
             await message.channel.send("SIKE im not gonna mock myself loool")
-        #if message.embed 
         messages = await channel.history(limit=2).flatten()
         grabbedMsg = (messages[1].content)
         mockedmsg = ""
@@ -47,14 +46,14 @@ async def on_message(message):
     if message.content.startswith('!m-changelog'):
         msg = invite
         await message.channel.send("""
-        ```asciidoc
-        [Current] = v0.6 = Make this command work and add it to !mock-help AND patch command bug
-        = v0.5 = Added ')' as a mock prefix
-        = v0.4 = the bot now deletes your '!mock' command when you use it, making it look better
-        = v0.3 = I forget lol
-        = v0.2 = it actually works now
-        = v0.1 = the birth of the bot
-        ```
+```md
+[Current] <0.7> Fix changelog and prevent mocking of myself
+<v0.6> Make this command work and add it to !mock-help AND patch command bug
+<v0.5> Added ')' as a mock prefix
+<v0.4> the bot now deletes your '!mock' command when you use it, making it look better
+<v0.3> I forget lol
+<v0.2> it actually works now
+<v0.1> the birth of the bot```
         """)
         print("[",time.strftime("%Y-%m-%d %H:%M:%S",ts),"]",message.author," used about !invite.")
 
