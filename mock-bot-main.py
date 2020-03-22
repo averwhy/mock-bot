@@ -6,7 +6,7 @@ from discord.ext import commands
 
 TOKEN = ''
 userid = '670079293673570323'
-version = 'v0.4'
+version = 'v0.6'
 invite = "https://discordapp.com/api/oauth2/authorize?client_id=670079293673570323&permissions=8&scope=bot"
 client = discord.Client()
 ts = time.gmtime()
