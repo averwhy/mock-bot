@@ -39,33 +39,35 @@ async def on_message(message):
         await message.channel.send(mockedmsg)
         print("[",time.strftime("%Y-%m-%d %H:%M:%S",ts),"]",message.author," mocked.")
     
-    if message.content.startswith('!mock-invite'):
+    if message.content.startswith('!m-invite'):
         msg = invite
         await message.channel.send(msg)
         print("[",time.strftime("%Y-%m-%d %H:%M:%S",ts),"]",message.author," used about !invite.")
 
-    if message.content.startswith('!mock-changelog'):
+    if message.content.startswith('!m-changelog'):
         msg = invite
         await message.channel.send("""
         ```asciidoc
-        [Current] = v0.5 = Added ')' as a mock prefix
+        [Current] = v0.6 = Make this command work and add it to !mock-help AND patch command bug
+        = v0.5 = Added ')' as a mock prefix
         = v0.4 = the bot now deletes your '!mock' command when you use it, making it look better
         = v0.3 = I forget lol
         = v0.2 = it actually works now
         = v0.1 = the birth of the bot
+        ```
         """)
         print("[",time.strftime("%Y-%m-%d %H:%M:%S",ts),"]",message.author," used about !invite.")
 
-    if message.content.startswith('!mock-help'):
+    if message.content.startswith('!m-help'):
             embed = discord.Embed(title="**List of commands**", description="List of commands to use.", colour=discord.Colour(0x7a19fd))
             embed.set_author(name="mock-bot")
             embed.set_footer(text=(version))
             embed.add_field(name="!mock", value="Mock the message above yours.", inline=False)
-            embed.add_field(name="!mock-help", value="Show this embed.", inline=False)
-            embed.add_field(name="!mock-invite", value="Get invite to the bot", inline=False)
+            embed.add_field(name="!m-help", value="Show this embed.", inline=False)
+            embed.add_field(name="!m-invite", value="Get invite to the bot", inline=False)
+            embed.add_field(name="!m-changelog", value="See the changelog", inline=False)
             await message.channel.send(embed=embed)
             print("[",time.strftime("%Y-%m-%d %H:%M:%S",ts),"]",message.author," viewed the list of commands.")
- 
 
 @client.event
 async def on_ready():
